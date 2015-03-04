@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <script type="text/javascript" charset="utf-8" src="js/jquery-2.0.2.js"></script>
+    <!-- <script type="text/javascript" charset="utf-8" src="js/lib/forms.js"></script> -->
+    <script type="text/javascript" charset="utf-8" src="js/lib/beweb-cma.js"></script>
+
+    <!-- Include the compiled Ratchet CSS -->
+    <link href="css/ratchet.css" rel="stylesheet">
+    <link href="css/ratchet-theme-ios.css" rel="stylesheet">
+    <link href="js/select2/select2.css" rel="stylesheet" />
+
+    <script type="text/javascript" charset="utf-8" src="js/select2/select2.min.js"></script>
+    <!-- Include the compiled Ratchet JS -->
+    <script type="text/javascript" charset="utf-8" src="js/ratchet.js"></script>
+
+    <script type="text/javascript">
+        //document.addEventListener('deviceready', startUp, false);  //fired in cordova
+        //$(document).ready(startUp);                              //fired on browser
+
+        var quotes = [
+            "There is a theory which states that if ever anyone discovers exactly what the Universe is for and why it is here, it will instantly disappear and be replaced by something even more bizarre and inexplicable. There is another theory which states that this has already happened.",
+            "Many were increasingly of the opinion that theyd all made a big mistake in coming down from the trees in the first place. And some said that even the trees had been a bad move, and that no one should ever have left the oceans.",
+            "My doctor says that I have a malformed public-duty gland and a natural deficiency in moral fibre, Ford muttered to himself, and that I am therefore excused from saving Universes.",
+            "The ships hung in the sky in much the same way that bricks dont.",
+            "You know, said Arthur, its at times like this, when Im trapped in a Vogon airlock with a man from Betelgeuse, and about to die of asphyxiation in deep space that I really wish Id listened to what my mother told me when I was young. Why, what did she tell you? I dont know, I didnt listen.",
+            "Space, it says, is big. Really big. You just wont believe how vastly, hugely, mindbogglingly big it is. I mean, you may think its a long way down the road to the chemists, but thats just peanuts to space.",
+            "Funny, he intoned funereally, how just when you think life cant possibly get any worse it suddenly does.",
+            "Isnt it enough to see that a garden is beautiful without having to believe that there are fairies at the bottom of it too?",
+            "A common mistake that people make when trying to design something completely foolproof is to underestimate the ingenuity of complete fools.",
+            "Curiously enough, the only thing that went through the mind of the bowl of petunias as it fell was Oh no, not again. Many people have speculated that if we knew exactly why the bowl of petunias had thought that we would know a lot more about the nature of the Universe than we do now.",
+            "The reason why it was published in the form of a micro sub meson electronic component is that if it were printed in normal book form, an interstellar hitchhiker would require several inconveniently large buildings to carry it around in.",
+            "For instance, on the planet Earth, man had always assumed that he was more intelligent than dolphins because he had achieved so much , the wheel, New York, wars and so on , whilst all the dolphins had ever done was muck about in the water having a good time. But conversely, the dolphins had always believed that they were far more intelligent than man , for precisely the same reasons.",
+            "The last ever dolphin message was misinterpreted as a surprisingly sophisticated attempt to do a double-backwards-somersault through a hoop whilst whistling the ‘Star Spangled Banner, but in fact the message was this: So long and thanks for all the fish.",
+            "The chances of finding out whats really going on in the universe are so remote, the only thing to do is hang the sense of it and keep yourself occupied.",
+            "Listen, three eyes, he said, dont you try to outweird me, I get stranger things than you free with my breakfast cereal.",
+            "Forty-two, said Deep Thought, with infinite majesty and calm.",
+            "Not unnaturally, many elevators imbued with intelligence and precognition became terribly frustrated with the mindless business of going up and down, up and down, experimented briefly with the notion of going sideways, as a sort of existential protest, demanded participation in the decision-making process and finally took to squatting in basements sulking.",
+            "The Total Perspective Vortex derives its picture of the whole Universe on the principle of extrapolated matter analyses.To explain , since every piece of matter in the Universe is in some way affected by every other piece of matter in the Universe, it is in theory possible to extrapolate the whole of creation , every sun, every planet, their orbits, their composition and their economic and social history from, say, one small piece of fairy cake. The man who invented the Total Perspective Vortex did so basically in order to annoy his wife.",
+            "Shee, you guys are so unhip its a wonder your bums dont fall off.",
+            "It is known that there are an infinite number of worlds, simply because there is an infinite amount of space for them to be in. However, not every one of them is inhabited. Therefore, there must be a finite number of inhabited worlds. Any finite number divided by infinity is as near to nothing as makes no odds, so the average population of all the planets in the Universe can be said to be zero. From this it follows that the population of the whole Universe is also zero, and that any people you may meet from time to time are merely the products of a deranged imagination.",
+            "The disadvantages involved in pulling lots of black sticky slime from out of the ground where it had been safely hidden out of harms way, turning it into tar to cover the land with, smoke to fill the air with and pouring the rest into the sea, all seemed to outweigh the advantages of being able to get more quickly from one place to another.",
+            "Make it totally clear that this gun has a right end and a wrong end. Make it totally clear to anyone standing at the wrong end that things are going badly for them. If that means sticking all sort of spikes and prongs and blackened bits all over it then so be it. This is not a gun for hanging over the fireplace or sticking in the umbrella stand, it is a gun for going out and making people miserable with.",
+            "It is a well known fact that those people who most want to rule people are, ipso facto, those least suited to do it. To summarize the summary: anyone who is capable of getting themselves made President should on no account be allowed to do the job.",
+            "Since we decided a few weeks ago to adopt the leaf as legal tender, we have, of course, all become immensely rich.",
+            "In the end, it was the Sunday afternoons he couldnt cope with, and that terrible listlessness that starts to set in about 2:55, when you know youve taken all the baths that you can usefully take that day, that however hard you stare at any given paragraph in the newspaper you will never actually read it, or use the revolutionary new pruning technique it describes, and that as you stare at the clock the hands will move relentlessly on to four oclock, and you will enter the long dark teatime of the soul.",
+            "He gazed keenly into the distance and looked as if he would quite like the wind to blow his hair back dramatically at that point, but the wind was busy fooling around with some leaves a little way off.",
+            "He was staring at the instruments with the air of one who is trying to convert Fahrenheit to centigrade in his head while his house is burning down.",
+            "There is a moment in every dawn when light floats, there is the possibility of magic. Creation holds its breath.",
+            "You may not instantly see why I bring the subject up, but that is because my mind works so phenomenally fast, and I am at a rough estimate thirty billion times more intelligent than you. Let me give you an example. Think of a number, any number. Er, five, said the mattress. Wrong, said Marvin. You see?",
+            "There is an art, it says, or rather, a knack to flying. The knack lies in learning how to throw yourself at the ground and miss.",
+            "It is a mistake to think you can solve any major problems just with potatoes.",
+            "He hoped and prayed that there wasnt an afterlife. Then he realized there was a contradiction involved here and merely hoped that there wasnt an afterlife.",
+            "Eskimos had over two hundred different words for snow, without which their conversation would probably have got very monotonous. So they would distinguish between thin snow and thick snow, light snow and heavy snow, sludgy snow, brittle snow, snow that came in flurries, snow that came in drifts, snow that came in on the bottom of your neighbors boots all over your nice clean igloo floor, the snows of winter, the snows of spring, the snows you remember from your childhood that were so much better than any of your modern snow, fine snow, feathery snow, hill snow, valley snow, snow that falls in the morning, snow that falls at night, snow that falls all of a sudden just when you were going out fishing, and snow that despite all your efforts to train them, the huskies have pissed on.",
+            "The storm had now definitely abated, and what thunder there was now grumbled over more distant hills, like a man saying And another thing… twenty minutes after admitting hes lost the argument.",
+            "He was wrong to think he could now forget that the big, hard, oily, dirty, rainbow-hung Earth on which he lived was a microscopic dot on a microscopic dot lost in the unimaginable infinity of the Universe.",
+            "It seemed to me, said Wonko the Sane, that any civilization that had so far lost its head as to need to include a set of detailed instructions for use in a packet of toothpicks, was no longer a civilization in which I could live and stay sane.",
+            "Nothing travels faster than the speed of light with the possible exception of bad news, which obeys its own special laws.",
+            "The last time anybody made a list of the top hundred character attributes of New Yorkers, common sense snuck in at number 79.",
+            "Protect me from knowing what I dont need to know. Protect me from even knowing that there are things to know that I dont know. Protect me from knowing that I decided not to know about the things that I decided not to know about. Amen.",
+            "All you really need to know for the moment is that the universe is a lot more complicated than you might think, even if you start from a position of thinking its pretty damn complicated in the first place.",
+            "In the beginning the Universe was created. This has made a lot of people very angry and been widely regarded as a bad move.",
+            "Dont Panic."
+
+        ]
+
+        var allowTalk = false;
+        $(document).ready(function () {
+            findVoices();
+            moveOn();
+            window.setInterval(moveOn, 23000);
+            if (window.SpeechSynthesisUtterance === undefined) {
+                // Not supported
+                $('.statusText').html('Speech not allowed');
+
+            } else {
+                // Read my text
+            }
+        });
+        function log(msg) {
+            $(".debug-log").prepend("<p>" + msg + "</p>");
+            return console.log(msg);
+        }
+
+        var quoteIndex = 0;
+        var toggle = 0;
+        var sc = 0;
+        function moveOn() {
+            var lst = $('#imgList img');
+            var src = lst[sc];
+            $('#showImg' + (toggle)).fadeOut(500, function () {
+                toggle++; if (toggle == 2) toggle = 0;
+                $('#showImg' + (toggle)).attr('src', $(src).attr('src')).fadeIn(500);
+                quoteIndex++
+                if (quoteIndex > quotes.length) quoteIndex = 0;
+                var msg = quotes[quoteIndex];
+                $('.statusText').html(msg);
+                if (allowTalk) speakMsg(msg);
+            });
+            if (sc < lst.length) {
+                sc++;
+            } else {
+                sc = 0;
+            }
+        }
+        function quiet() {
+            allowTalk = false;
+
+            window.speechSynthesis.cancel();
+        }
+        function playVibrate() {
+            var u = new SpeechSynthesisUtterance();
+            var x = document.getElementById("frm1");
+            var txt = "";
+            txt = x.elements[0].value
+            if (txt == "") txt = "The hitch hikers guide to the galaxy, staarring peter jones as the book";
+            u.text = txt;
+            u.lang = 'en-US';
+            if (window.voice) {
+                currentUtterance.voice = window.voice;
+            }
+            window.speechSynthesis.speak(u);
+
+        }
+        function speakMsg(msg,nextFn) {
+            allowTalk = true;
+            var u = new SpeechSynthesisUtterance();
+            u.text = msg;
+            u.lang = 'en-US';
+            //u.voice = instructionVoice;
+            u.voice = emailVoice;
+            //u.rate = 5.0;
+            u.rate = 2.5;
+            u.pitch = 0.8;
+            if (nextFn != null) u.onend = nextFn;
+
+            window.speechSynthesis.speak(u);
+            
+        }
+        function vibrate() {
+            for (sc = 10; sc > 0; sc--) {
+                window.setTimeout(function () {
+                    navigator.notification.vibrate(200);
+                }, 100 * sc);
+            }
+            
+        }
+
+        function playAudio(id) {
+            var audioElement = document.getElementById(id);
+            var url = audioElement.getAttribute('src');
+            var my_media = new Media(url,
+                    // success callback
+                     function () { console.log("playAudio():Audio Success"); },
+                    // error callback
+                     function (err) { console.log("playAudio():Audio Error: " + err); }
+            );
+            // Play audio
+            my_media.play();
+        }
+
+        var instructionVoice = null;
+        var emailVoice = null;
+         function findVoices() {
+             var voices = window.speechSynthesis.getVoices();
+             log("Found " + voices.length + " voices");
+             if (voices.length == 0) {
+                 window.setTimeout(findVoices, 500);
+             } else {
+                 instructionVoice = null;
+                 emailVoice = null;
+                 if (voices.length > 0) {
+                     instructionVoice = voices[0];
+                     emailVoice = voices[0];
+                 }
+                 if (voices.length > 1) {
+                     instructionVoice = voices[1];
+                 }
+                 if (voices.length > 2) {
+                     emailVoice = voices[2];
+                 }
+                 //speakWords("Ahem. Found my voice", emailVoice);
+             }
+         }
+    </script>
+    <title>HHGTTG</title>
+
+</head>
+<body style="margin: 0; padding: 0; background-color: black">
+    <header class="bar bar-nav" style="background-color:black;">
+        <button class="btn btn-link btn-nav pull-left back-button" onclick="goBack()"><span class="icon icon-left-nav"></span>Back</button>
+        <h1 class="title" style="color:yellow">HHGTTG</h1>
+    </header>
+    <div class="content intro-screen" style="background-color:black;">
+        <h1 id="welcome"></h1>
+        
+        <audio id="successSound" src="file:///android_asset/www/res/Hitchhikers_Theme_Song.mp3" type="audio/mpeg" ></audio>
+
+		<button onclick="playVibrate();" class="ui-btn ui-btn-inline">Talk</button>
+		<!--<button onclick="speakMsg('I wish i\'d listened to what my mother said when i was young');" class="ui-btn ui-btn-inline">eh?</button>
+		-->
+        <button onclick="quiet();" class="ui-btn ui-btn-inline">Quiet</button>
+		<button onclick="vibrate();" class="ui-btn ui-btn-inline">Shake it!</button>
+		<button onclick="allowTalk=true;moveOn();" class="ui-btn ui-btn-inline">Next</button>
+        <button onclick="playAudio('successSound')">Theme</button>
+
+        <img src="" style="display: none; width: 100%" id="showImg0" />
+        <img src="" style="display: none; width: 100%" id="showImg1" />
+        <div style="display: none" id="imgList">
+            <img src="img/arthur%20and%20marvin.jpg" /><img src="img/console.gif" /><img src="img/hang%20the%20sense%20of%20it.jpg" /><img src="img/heart%20of%20gold.png" /><img src="img/life.jpg" />
+            <img src="img/marvin_1.jpg" /><img src="img/planet.jpg" /><img src="img/space%202.jpg" /><img src="img/space.jpg" /><img src="img/vogon.jpg" /><img src="img/whale.jpg" /><img src="img/zooey%20deschanel.jpg" />
+            <img src="img/v2/bulldozer.jpg" /><img src="img/v2/deck.jpg" /><img src="img/v2/fiords.jpg" /><img src="img/v2/ford%20and%20arthur.jpg" /><img src="img/v2/ford1.jpg" /><img src="img/v2/gold%201.jpg" /><img src="img/v2/gold%202.jpg" /><img src="img/v2/heart-of-gold.jpg" /><img src="img/v2/Heart_of_Gold.png" /><img src="img/v2/keep%20calm.jpg" /><img src="img/v2/mice.jpg" /><img src="img/v2/phil.jpg" /><img src="img/v2/slartibartfast.jpg" /><img src="img/v2/towel.gif" /><img src="img/v2/vending.gif" /><img src="img/v2/zaphod.jpg" />
+        </div>
+<form id="frm1">
+          What should I say? <input type="text" name="fname" value=""><br>
+        </form> 
+         
+    </div>
+
+
+    <div class="statusText" style="position: fixed; bottom: 0; background-color: #ccc; color: black; width: 100%; height: 30%;">...</div>
+
+    <a href="#myModalexample" class="btn">Open modal</a>
+    <div id="myModalexample" class="modal">
+        <header class="bar bar-nav">
+            <a class="icon icon-close pull-right" href="#myModalexample"></a>
+            <h1 class="title">Modal</h1>
+        </header>
+
+        <div class="content">
+            <p id="ErrorMessage" class="content-padded">The contents of my modal go here. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut.</p>
+        </div>
+    </div>
+
+
+    <!--needs to be here-->
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+</body>
+</html>
